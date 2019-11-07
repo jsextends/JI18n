@@ -1,0 +1,38 @@
+{
+  "name": "@jsextend19/j19-i18n",
+  "version": "1.0.0",
+  "description": "这是一个国际化的库",
+  "main": "lib/j19-I18n.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSextend19/j19-I18n.git"
+  },
+  "keywords": [
+    "i18n",
+    "国际化",
+    "javascript"
+  ],
+  "author": "usernameisregistered",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JSextend19/j19-I18n/issues"
+  },
+  "homepage": "https://github.com/JSextend19/j19-I18n#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.0",
+    "@jsextend19/j19-event": "^1.1.0"
+  }
+}
