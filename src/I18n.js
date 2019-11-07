@@ -40,11 +40,11 @@ export class I18n{
      * @returns {null}
      */
     addLanguage(value){
-        if(Object.prototype.toString.call(value) == "[object Array]"){
+        if(Object.prototype.toString.call(value) == "[object Object]"){
             for(let item in value){
                 this._availableI18nMap.set(item,value[item])
             }
-        }else if( Object.prototype.toString.call(value) == "[object Object]"){
+        }else if( Object.prototype.toString.call(value) == "[object Array]"){
             for(let item of value){
                 for(let key in item){
                     this._availableI18nMap.set(key,value[item][key])
