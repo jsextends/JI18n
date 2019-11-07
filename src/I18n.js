@@ -1,4 +1,3 @@
-import { J19ErrorEvent } from "@jsextend19/j19-event"
 export class I18n{
     /**
      * 设置的本地化语言
@@ -52,7 +51,7 @@ export class I18n{
                 } 
             }
         }else{
-            throw new J19ErrorEvent("Invalid internationalized language","无效的国际化语言")
+            throw new Error("Invalid internationalized language")
         }
     }
 
@@ -67,7 +66,7 @@ export class I18n{
             this._l10nKey = key
             this._l10nValue = this._availableI18nMap.get(key)
         }else{
-            throw new J19ErrorEvent("An internationalized language that does not exist","不存在的国际化语言")
+            throw new Error("An internationalized language that does not exist")
         }
     }
     /**
@@ -81,7 +80,7 @@ export class I18n{
         if(this._l10nValue[type][prop]){
             return this._l10nValue[type][prop]
         }else{
-            throw new J19ErrorEvent("Cannot get the value of property" + prop,"无法获取属性" + prop+ "对应的值" )
+            throw new Error("Cannot get the value of property" + prop,"无法获取属性" + prop+ "对应的值")
         }
     }
 }
