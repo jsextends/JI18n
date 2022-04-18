@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JSextend19/ji18n.git"
+    "url": "git+https://github.com/usernameisregistered/ji18n"
   },
   "keywords": [
     "i18n",
@@ -23,9 +23,9 @@
   "author": "usernameisregistered",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JSextend19/ji18n/issues"
+    "url": "https://github.com/usernameisregistered/ji18nissues"
   },
-  "homepage": "https://github.com/JSextend19/ji18n#readme",
+  "homepage": "https://github.com/usernameisregistered/ji18n#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -34,6 +34,9 @@
     "jsdoc": "^3.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
+  },
+  "publishConfig": {
+    "registry": " https://registry.npmjs.org"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
