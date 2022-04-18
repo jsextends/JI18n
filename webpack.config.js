@@ -1,6 +1,7 @@
 const path = require('path')
+const process = require("process")
 module.exports = {
-    mode: "production",
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
@@ -10,9 +11,8 @@ module.exports = {
     },
     entry: './src/I18n.js',
     output: {
-        filename: 'j19-I18n.min.js',
-        path: path.resolve(__dirname, 'lib'),
-        library: 'J19',
+        filename: process.env.NODE_ENV === "production" ? "ji18n.min.js" : "ji18n.js",
+        path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd'
     }
 }

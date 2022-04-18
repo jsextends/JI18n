@@ -1,31 +1,37 @@
 {
-  "name": "@jsextend19/j19-i18n",
-  "version": "1.0.4",
+  "name": "@jsextend19/ji18n",
+  "version": "2.0.0",
   "description": "这是一个国际化的库",
-  "main": "lib/j19-I18n.min.js",
+  "main": "dist/ji18n.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JSextend19/j19-I18n.git"
+    "url": "git+https://github.com/JSextend19/ji18n.git"
   },
   "keywords": [
     "i18n",
+    "l10n",
     "国际化",
+    "本地化",
     "javascript"
   ],
   "author": "usernameisregistered",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JSextend19/j19-I18n/issues"
+    "url": "https://github.com/JSextend19/ji18n/issues"
   },
-  "homepage": "https://github.com/JSextend19/j19-I18n#readme",
+  "homepage": "https://github.com/JSextend19/ji18n#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "cross-env": "^7.0.3",
+    "jsdoc": "^3.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
