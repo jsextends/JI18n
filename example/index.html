@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/ji18n.js"></script>
+    <script src="./en.js"></script>
+    <script src="./zh.js"></script>
+    <style>
+        #content{
+            width: 600px;
+            margin: 20px auto;
+        }
+        .btn{
+            font-size: 14px;
+            background: blue;
+            border-radius: 50px;
+            padding:  4px 5px;
+            float: right;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h3><span id="title">标题</span> <span class="btn" id="changeLange" onclick="changeLange()">切换语言</span></h3>
+        <div>
+            <div id="username">用户名</div>
+            <div id="password">密码</div>
+        </div>
+        <div>
+            <div id="register">注册</div>
+            <div id="login">登录</div>
+        </div>
+        <div id="copy">此内容的部分内容©1998-2022</div>
+    </div>
+    <script>
+        const i18n = new JI18n(true, "lang");
+        // const i18n = new JI18n(false, "lang");
+        if(!i18n.isloadedLang()){
+            console.log("仅仅执行一次")
+            // console.log("每次执行")
+            i18n.addI18n({"zh": zh_lang})
+            i18n.addI18n({"en": en_lang})
+            i18n.setL10n("zh")
+        }
+        function changeLange(){
+            console.log("国际化语言类型" + i18n.getI18n().join(","))
+            if(i18n.getL10n() !== "zh"){
+                i18n.setL10n("zh")
+            } else {
+                i18n.setL10n("en")
+            }
+            document.getElementById("title").innerText = i18n.getField("title")
+            document.getElementById("changeLange").innerText = i18n.getField("changeLange")
+            document.getElementById("username").innerText = i18n.getField("body.form.username")
+            document.getElementById("password").innerText = i18n.getField("body.form.password")
+            document.getElementById("register").innerText = i18n.getField("body.btn.register")
+            document.getElementById("login").innerText = i18n.getField("body.btn.login")
+            document.getElementById("copy").innerText = i18n.getField("copy")
+        }
+    </script>
+</body>
+</html>

@@ -43,14 +43,6 @@ export class JI18n {
     _prefixSerialize = "lang"
 
     /**
-     * 当前已添加的国际化语言类型
-     * @property _langKeys
-     * @type Array
-     * @private
-     */
-    _langKeys = [];
-
-    /**
      * 构造函数
      * @param {Boolean} isSerialize 是否序列化
      * @param {String} prefix  序列化key值前缀
@@ -58,9 +50,10 @@ export class JI18n {
     constructor(isSerialize, prefix) {
         this._isSerialize = isSerialize ?? this._isSerialize
         this._prefixSerialize = prefix ?? this._prefixSerialize
-        this._langKeys = [];
         this._availableI18nMap = new Map();
-        this.deserializeL10n();
+        if (this.isloadedLang()) { 
+            this.deserializeL10n();
+        }
     }
 
     /**
@@ -68,7 +61,7 @@ export class JI18n {
      * @returns {Boolen}
      */
     isloadedLang() {
-        return this.getI18n().length && this.getL10n()
+        return this.getI18n().length && this._isSerialize
     }
 
     /**
@@ -79,7 +72,7 @@ export class JI18n {
      */
     serializeI18n(key, value) {
         if (this._isSerialize) {
-            window.sessionStorage.setItem(this._prefixSerialize + "_" + key, value)
+            window.sessionStorage.setItem(this._prefixSerialize + "_" + key, JSON.stringify(value))
         }
     }
 
@@ -99,9 +92,9 @@ export class JI18n {
      * @private
      */
     deserializeI18n() {
-        this._langKeys = Object.keys(window.sessionStorage).filter(el => el.indexOf(this._prefixSerialize) > -1).map(el => el.slice(this._prefixSerialize + 1));
-        this._langKeys.forEach(el => {
-            this._availableI18nMap.set(el, window.sessionStorage.getItem(this._prefixSerialize + "_" + el))
+        const langKeys = this.getI18n();
+        langKeys.forEach(el => {
+            this._availableI18nMap.set(el, JSON.parse(window.sessionStorage.getItem(this._prefixSerialize + "_" + el)))
         })
         this._l10nValue = this._availableI18nMap.get(this._l10nKey)
     }
@@ -127,7 +120,7 @@ export class JI18n {
         if (Object.prototype.toString.call(value) == "[object Object]") {
             for (let item in value) {
                 this._availableI18nMap.set(item, value[item])
-                this.serializeI18n(key, value);
+                this.serializeI18n(item, value[item]);
             }
         } else if (Object.prototype.toString.call(value) == "[object Array]") {
             for (let item of value) {
@@ -146,7 +139,7 @@ export class JI18n {
      * @returns {Array}
      */
     getI18n() {
-        return this._langKeys
+        return Object.keys(window.sessionStorage).filter(el => el.indexOf(this._prefixSerialize) > -1 && el.indexOf("_L10n") === -1).map(el => el.slice(this._prefixSerialize.length + 1));
     }
 
     /**
