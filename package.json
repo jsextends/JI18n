@@ -1,6 +1,6 @@
 {
   "name": "@jsextend19/ji18n",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "这是一个国际化的库",
   "main": "dist/ji18n.min.js",
   "scripts": {
