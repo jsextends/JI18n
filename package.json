@@ -1,5 +1,5 @@
 {
-  "name": "@jsextend19/ji18n",
+  "name": "@jsextends/ji18n",
   "version": "1.0.0",
   "description": "这是一个国际化的库",
   "main": "dist/ji18n.min.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usernameisregistered/ji18n"
+    "url": "git+https://github.com/jsextends/JI18n"
   },
   "keywords": [
     "i18n",
@@ -22,9 +22,9 @@
   "author": "usernameisregistered",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/usernameisregistered/ji18nissues"
+    "url": "https://github.com/jsextends/JI18n/issues"
   },
-  "homepage": "https://github.com/usernameisregistered/ji18n#readme",
+  "homepage": "https://github.com/jsextends/JI18n#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",

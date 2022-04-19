@@ -1,13 +1,13 @@
-# jI18n
+# JI18n
 这是一个国际化的库
 
 ## 安装 
-`npm i @jsextend19/ji18n`
+`npm i @jsextends/ji18n`
 
 ## 引入
 
 ```
-import { JI18n } from "@jsextend19/ji18n"
+import { JI18n } from "@jsextends/ji18n"
 ```
 
 ## 文档
